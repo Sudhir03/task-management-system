@@ -35,14 +35,13 @@ app.use((err, req, res, next) => {
 // ── Connect to MongoDB, then start server ─────
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
+const serverurl = process.env.SERVER_URL || `http://localhost:${PORT}`;
 
 mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () =>
-      console.log(`Server running on http://localhost:${PORT}`),
-    );
+    app.listen(PORT, () => console.log(`Server running on ${serverurl}`));
   })
   .catch((err) => {
     console.error("MongoDB connection failed:", err.message);
