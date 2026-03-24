@@ -12,8 +12,10 @@ const notificationRoutes = require("./routes/notifications");
 
 const app = express();
 
+const allowedOrigins = [process.env.FRONTEND_URL || "http://localhost:5173"];
+
 // ── Middleware ────────────────────────────────
-app.use(cors("https://task-management-system-v5xx.vercel.app")); // Allow cross-origin requests from React frontend
+app.use(cors(allowedOrigins)); // Allow cross-origin requests from React frontend
 app.use(express.json()); // Parse incoming JSON request bodies
 
 // ── Routes ────────────────────────────────────
