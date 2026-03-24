@@ -13,7 +13,7 @@ const notificationRoutes = require("./routes/notifications");
 const app = express();
 
 // ── Middleware ────────────────────────────────
-app.use(cors()); // Allow cross-origin requests from React frontend
+app.use(cors("https://task-management-system-v5xx.vercel.app")); // Allow cross-origin requests from React frontend
 app.use(express.json()); // Parse incoming JSON request bodies
 
 // ── Routes ────────────────────────────────────
